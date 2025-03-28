@@ -1,28 +1,27 @@
-import getRandomNum from '../getRandomNumber.js';
-import startGame from '../index.js';
+import fetchRandomNum from '../getRandomNumber.js';
+import initiateGame from '../index.js';
 
-const generateQuestion = (start, diff, length, ind) => {
-  const filledArray = Array.apply(0, Array(length)).map(() => (start));
-  const arrayWithProgression = filledArray.map((el, index) => {
-    const result = el + diff * index;
-    return index === ind ? '..' : result;
-  }, 1);
-  return arrayWithProgression.join(' ');
+const createProgression = (initial, step, size, hiddenPos) => {
+  const baseArray = Array(size).fill(initial);
+  const progression = baseArray.map((val, idx) => 
+    idx === hiddenPos ? '..' : val + step * idx
+  );
+  return progression.join(' ');
 };
 
-const lengthOfProgression = 10;
+const progressionLength = 10;
 
 const description = 'What number is missing in the progression?';
 
-const getQuestionAndAnswer = () => {
-  const start = getRandomNum();
-  const diff = getRandomNum();
-  const indexOfHiddenValue = getRandomNum(0, lengthOfProgression - 1);
-  const question = generateQuestion(start, diff, lengthOfProgression, indexOfHiddenValue);
-  const answer = `${start + diff * indexOfHiddenValue}`;
-  return [question, answer];
+const setupRound = () => {
+  const firstNum = fetchRandomNum();
+  const increment = fetchRandomNum();
+  const hiddenIndex = fetchRandomNum(0, progressionLength - 1);
+  const task = createProgression(firstNum, increment, progressionLength, hiddenIndex);
+  const correctValue = String(firstNum + increment * hiddenIndex);
+  return [task, correctValue];
 };
 
-const start = () => startGame(getQuestionAndAnswer, description);
+const launch = () => initiateGame(setupRound, description);
 
-export default start;
+export default launch;
