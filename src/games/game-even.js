@@ -1,3 +1,4 @@
+import { question } from 'readline-sync';
 import generateNum from '../getRandomNumber.js';
 import launchGame from '../index.js';
 
@@ -7,8 +8,8 @@ const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const createRound = () => {
   const task = generateNum();
-  const correctAnswer = checkParity(task) ? 'yes' : 'no';
-  return [task, correctAnswer];
+  const correctAnswer = checkParity(question) ? 'yes' : 'no';
+  return [question, correctAnswer];
 };
 
 const beginGame = () => launchGame(createRound, gameRule);
