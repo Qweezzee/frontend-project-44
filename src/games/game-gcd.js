@@ -1,3 +1,4 @@
+import generateNumber from '../getRandomNumber.js';
 import launchGame from '../index.js';
 
 const findGCD = (x, y) => (x % y ? findGCD(y, x % y) : Math.abs(y));

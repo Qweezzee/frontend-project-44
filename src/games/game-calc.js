@@ -1,25 +1,18 @@
 import generateNumber from '../getRandomNumber.js';
 import launchGame from '../index.js';
 
-const computeResult = (firstNum, secondNum, operation) => {
-  if (operation === '+') return firstNum + secondNum; // я сам писал код чесна
-  if (operation === '-') return firstNum - secondNum;
-  if (operation === '*') return firstNum * secondNum;
-  return null;
+const findGCD = (x, y) => (x % y ? findGCD(y, x % y) : Math.abs(y));
+
+const gameTask = 'Find the greatest common divisor of given numbers.';
+
+const setupRound = () => {
+  const firstNum = generateNumber();
+  const secondNum = generateNumber();
+  const taskText = `${firstNum} ${secondNum}`;
+  const result = String(findGCD(firstNum, secondNum));
+  return [taskText, result];
 };
 
-const gameInstruction = 'What is the result of the expression?';
+const initiate = () => launchGame(setupRound, gameTask);
 
-const prepareRound = () => {
-  const value1 = generateNumber();
-  const value2 = generateNumber();
-  const operations = ['+', '-', '*'];
-  const chosenOp = operations[generateNumber(0, operations.length - 1)];
-  const task = `${value1} ${chosenOp} ${value2}`;
-  const correctResult = String(computeResult(value1, value2, chosenOp));
-  return [task, correctResult];
-};
-
-const initiateGame = () => launchGame(prepareRound, gameInstruction);
-
-export default initiateGame;
+export default initiate;

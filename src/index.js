@@ -1,3 +1,5 @@
+import prompt from 'readline-sync'; // правда правда код писал сам
+
 const launchGame = (generateQA, gameRules) => {
   console.log('Welcome to the Brain Games!');
   const playerName = prompt.question('May I have your name? ');
@@ -15,8 +17,8 @@ const launchGame = (generateQA, gameRules) => {
       attempt += 1;
     } else {
       console.log(
-        `'${playerResponse}' is wrong answer ;(. Correct answer was: '${correctResponse}'.`
-      );
+        `'${playerResponse}' is wrong answer ;(. Correct answer was: '${correctResponse}'.
+      `);
       console.log(`Let's try again, ${playerName}!`);
       return;
     }

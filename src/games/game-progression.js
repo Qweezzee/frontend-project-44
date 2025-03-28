@@ -1,3 +1,4 @@
+import fetchRandomNum from '../getRandomNumber.js';
 import initiateGame from '../index.js';
 
 const createProgression = (initial, step, size, hiddenPos) => {

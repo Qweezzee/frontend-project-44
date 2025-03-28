@@ -1,3 +1,4 @@
+import generateNum from '../getRandomNumber.js';
 import launchGame from '../index.js';
 
 const checkPrime = (num) => {
