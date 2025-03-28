@@ -8,7 +8,7 @@ const computeResult = (firstNum, secondNum, operation) => {
   return null;
 };
 
-const gameInstruction = 'Calculate the result of the given expression.';
+const gameInstruction = 'What is the result of the expression?';
 
 const prepareRound = () => {
   const value1 = generateNumber();

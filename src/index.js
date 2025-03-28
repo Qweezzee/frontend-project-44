@@ -1,9 +1,9 @@
 import prompt from "readline-sync"; // правда правда код писал сам
 
 const launchGame = (generateQA, gameRules) => {
-  console.log("Brain Games: Start!");
-  const playerName = prompt.question("What's your name? ");
-  console.log(`Greetings, ${playerName}!`);
+  console.log("Welcome to the Brain Games!");
+  const playerName = prompt.question("May I have your name? ");
+  console.log(`Hello, ${playerName}!`);
   console.log(gameRules);
   
   const totalAttempts = 3;
@@ -15,18 +15,18 @@ const launchGame = (generateQA, gameRules) => {
     const playerResponse = prompt.question("Your response: ");
     
     if (playerResponse === correctResponse) {
-      console.log("Well done!");
+      console.log("Correct!");
       attempt += 1;
     } else {
       console.log(
-        `Oops! "${playerResponse}" is incorrect. Right answer: "${correctResponse}".`
+        `"${playerResponse}" is wrong answer ;(. Correct answer was: "${correctResponse}".`
       );
-      console.log(`Give it another shot, ${playerName}!`);
+      console.log(`Let's try again, ${playerName}!`);
       return;
     }
   }
   
-  console.log(`Victory, ${playerName}!`);
+  console.log(`Congratulations, ${playerName}!`);
 };
 
 export default launchGame;
