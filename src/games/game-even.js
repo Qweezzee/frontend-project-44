@@ -8,8 +8,8 @@ const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const createRound = () => {
   const task = generateNum();
-  const correctAnswer = checkParity(question) ? 'yes' : 'no';
-  return [question, correctAnswer];
+  const correctAnswer = checkParity(task) ? 'yes' : 'no';
+  return [task, correctAnswer];
 };
 
 const beginGame = () => launchGame(createRound, gameRule);
