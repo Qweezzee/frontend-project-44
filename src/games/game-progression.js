@@ -1,11 +1,10 @@
-import fetchRandomNum from '../getRandomNumber.js';
 import initiateGame from '../index.js';
 
 const createProgression = (initial, step, size, hiddenPos) => {
   const baseArray = Array(size).fill(initial);
-  const progression = baseArray.map((val, idx) => 
+  const progression = baseArray.map((val, idx) => (
     idx === hiddenPos ? '..' : val + step * idx
-  );
+  ));
   return progression.join(' ');
 };
 
