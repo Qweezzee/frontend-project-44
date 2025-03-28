@@ -1,7 +1,7 @@
 import getRandomNum from '../getRandomNumber.js';
 import startGame from '../index.js';
 
-const calculate = (num1, operator, num2) => {
+const calculate = (num1, num2, operator) => {
   switch (operator) {
     case '+':
       return num1 + num2;
