@@ -1,7 +1,7 @@
 import getRandomNum from '../getRandomNumber.js';
 import startGame from '../index.js';
 
-const calculate = (num1, num2, operator) => {
+const calculate = (num1, operator, num2) => {
   switch (operator) {
     case '+':
       return num1 + num2;
@@ -10,9 +10,10 @@ const calculate = (num1, num2, operator) => {
     case '*':
       return num1 * num2;
     default:
-      return false;
+      return undefined;
   }
 };
+
 
 const description = 'What is the result of the expression?';
 
