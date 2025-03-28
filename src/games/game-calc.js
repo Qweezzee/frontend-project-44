@@ -3,17 +3,16 @@ import startGame from '../index.js';
 
 const calculate = (num1, num2, operator) => {
   switch (operator) {
-    case '+':
-      return num1 + num2;
-    case '-':
-      return num1 - num2;
-    case '*':
-      return num1 * num2;
-    default:
-      return undefined;
+    case '+': answer = num1 + num2;
+      break;
+    case '-': answer = num1 - num2;
+      break;
+    case '*': answer = num1 * num2;
+      break;
+    default: break;
   }
+  return answer;
 };
-
 
 const description = 'What is the result of the expression?';
 
