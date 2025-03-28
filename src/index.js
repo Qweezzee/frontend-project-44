@@ -11,7 +11,7 @@ const launchGame = (generateQA, gameRules) => {
 
   while (attempt < totalAttempts) {
     const [task, correctResponse] = generateQA();
-    console.log(`Task: ${task}`);
+    console.log(`Question: ${task}`);
     const playerResponse = prompt.question("Your response: ");
     
     if (playerResponse === correctResponse) {
