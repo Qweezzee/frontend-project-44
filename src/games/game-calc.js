@@ -1,34 +1,31 @@
-import getRandomNumber from '../getRandomNumber.js';
-import playGame from '../index.js';
+import getRandomNum from '../getRandomNumber.js';
+import startGame from '../index.js';
 
-const rule = 'What is the result of the expression?';
-const operations = ['+', '-', '*'];
-
-const getCorrectAnswer = (operand1, operand2, operation) => {
-  let answer;
-  switch (operation) {
-    case '+': answer = operand1 + operand2;
-      break;
-    case '-': answer = operand1 - operand2;
-      break;
-    case '*': answer = operand1 * operand2;
-      break;
-    default: break;
+const calculate = (num1, num2, operator) => {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      return false;
   }
-  return answer;
 };
+
+const description = 'What is the result of the expression?';
 
 const getQuestionAndAnswer = () => {
-  const operand1 = getRandomNumber();
-  const operand2 = getRandomNumber();
-  const operation = operations[getRandomNumber(0, operations.length)];
-  const question = `${operand1} ${operation} ${operand2}`;
-  const answer = getCorrectAnswer(operand1, operand2, operation);
-  return [question, String(answer)];
+  const num1 = getRandomNum();
+  const num2 = getRandomNum();
+  const operators = ['+', '-', '*'];
+  const operator = operators[getRandomNum(0, operators.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  const answer = toString(calculate(num1, num2, operator));
+  return [question, answer];
 };
 
-const initGameCalc = () => {
-  playGame(rule, getQuestionAndAnswer);
-};
+const start = () => startGame(getQuestionAndAnswer, description);
 
-export default initGameCalc;
+export default start;
