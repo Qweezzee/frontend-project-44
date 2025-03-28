@@ -11,7 +11,6 @@ const calculate = (num1, num2, operator) => {
       break;
     default: break;
   }
-  return answer;
 };
 
 const description = 'What is the result of the expression?';
