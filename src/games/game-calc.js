@@ -5,14 +5,12 @@ const calculate = (num1, num2, operator) => {
   switch (operator) {
     case '+':
       return num1 + num2;
-      break;
-    case '-': 
+    case '-':
       return num1 - num2;
-      break;
     case '*':
       return num1 * num2;
-      break;
-    default: break;
+    default:
+      return undefined;
   }
 };
 
