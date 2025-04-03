@@ -14,7 +14,7 @@ brain-prime:
 	node bin/brain-prime.js
 publish: ##фортнайт
 	npm publish --dry-run
-lint:
+lint: ##ligmabols
 	npx eslint . --fix
 test:
 	npm test
