@@ -16,8 +16,10 @@ const launchGame = (generateQA, gameRules) => {
       console.log('Correct!');
       attempt += 1;
     } else {
-      console.log(`'${playerResponse}' is wrong answer ;(. Correct answer was: '${correctResponse}'.`);
-      
+      console.log(
+        `'${playerResponse}' is wrong answer ;(. Correct answer was: '${correctResponse}'.`,
+      );
+
       console.log(`Let's try again, ${playerName}!`);
       return;
     }
